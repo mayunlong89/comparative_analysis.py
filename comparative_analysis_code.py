@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 #Author: Yunlong Ma
-#Usage: Code for comparative analysis which is a part of an analysis of integrative genomics analysis of CAD
+#Usage: Code for comparative analysis which is part of an analysis of integrative genomics analysis of CAD
+
+
+import numpy
 
 
 #Part I Load data
@@ -85,7 +88,8 @@ def fun_rate(x,y,z):
         sum_null_1 = 0.0001
     rate2 = sum_null_1/sum1
     return(rate,rate2)
-            
+ 
+           
 #For Sherlock analysis of Zeller et al eQTL vs. MAGMA  
 #At the threshold of P value = 0.05
 Rate1 = fun_rate(Geneset_1,Geneset3,Geneset4)
@@ -93,7 +97,8 @@ Rate1 = fun_rate(Geneset_1,Geneset3,Geneset4)
 Rate2 = fun_rate(Geneset_2,Geneset3,Geneset4)
 #At the threshold of P value = 0.001
 Rate3 = fun_rate(Geneset_3,Geneset3,Geneset4)
-
+CAD_group = [Rate1[0],Rate2[0],Rate3[0]]
+Null_group =  [Rate1[1],Rate2[1],Rate3[1]]
 
 #For Sherlock analysis of Dixon et al eQTL vs. MAGMA
 #At the threshold of P value = 0.05
@@ -102,9 +107,21 @@ Rate4 = fun_rate(Geneset2_1,Geneset3,Geneset4)
 Rate5 = fun_rate(Geneset2_2,Geneset3,Geneset4)
 #At the threshold of P value = 0.001
 Rate6 = fun_rate(Geneset2_3,Geneset3,Geneset4)
+CAD_group_2 = [Rate4[0],Rate5[0],Rate6[0]]
+Null_group_2 =  [Rate4[1],Rate5[1],Rate6[1]]
 
 
+
+#paired t-test for Sherlock and MAGMA on CAD VS. Sherlock and MAGMA on null trait
+from scipy.stats import ttest_rel
+ttest_rel(CAD_group,Null_group)
+
+
+
+if __name__ == "__main__":
+    print(ttest_rel(CAD_group,Null_group))
 
 #End
+
 
 
