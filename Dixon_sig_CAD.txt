@@ -1,4 +1,4 @@
-Gene	P
+Gene	Simulated_P_values
 HTR1B	1.52E-06
 NTRK1	0.000153589
 IL15RA	0.000229623
