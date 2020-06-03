@@ -42,7 +42,7 @@ Geneset2_3 =[]
 for line2 in f2:
     if line2[0:3] !="Gene":
         dd2 = line2.strip().split()
-        Geneset2_1.append(dd[0])      
+        Geneset2_1.append(dd2[0])      
         if dd2[1]!="P" and float(dd2[1])<0.01:
             Geneset2_2.append(dd2[0])          
         if dd2[1]!="P" and float(dd2[1])<0.001:
