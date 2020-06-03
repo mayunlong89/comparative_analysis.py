@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #Author: Yunlong Ma
-#Usage: Code for comparative analysis which is part of an analysis of integrative genomics analysis of CAD
+#Usage: Code for comparative analysis which is a part of an analysis of integrative genomics analysis of CAD
 
 
 import numpy
